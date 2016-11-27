@@ -1,0 +1,13 @@
+{
+  "name": "ufc-predictor",
+  "version": "1.0.0",
+  "description": "UFC fight predictor",
+  "repository": "https://github.com/ianwessen/ufcPredictor.git",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Ian Wessen, Cody Rioux",
+  "license": "ISC"
+}
