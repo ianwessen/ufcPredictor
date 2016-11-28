@@ -1,19 +1,19 @@
-var http = require('http');
-var url = require('url');
+const http = require('http');
+const url = require('url');
 
 const PORT = 8080
 
 // TODO: These aren't tested!
-let compose = (...funcs) => (value) => funcs.reduce((v,fn) => fn(v), value);
-let curry = (fun, arg) => (...args) => fun(...[arg, ...args]);
+const compose = (...funcs) => (value) => funcs.reduce((v,fn) => fn(v), value);
+const curry = (fun, arg) => (...args) => fun(...[arg, ...args]);
 
 function handleRequest (request,response) {
 
     // TODO: I probably have some linter violations here.
-	var requestParams = url.parse(request.url, true).query
-	var weightA = parseFloat(requestParams["weightB"])
-	var weightB = parseFloat(requestParams["weightA"])
-	var maxWeightFinder = compose(curry(Math.max, weightA), Math.ceil)
+	const requestParams = url.parse(request.url, true).query
+	const weightA = parseFloat(requestParams["weightB"])
+	const weightB = parseFloat(requestParams["weightA"])
+	const maxWeightFinder = compose(curry(Math.max, weightA), Math.ceil)
 
 	response.end(JSON.stringify({
 	    "weightA": weightA,
@@ -22,7 +22,7 @@ function handleRequest (request,response) {
 	}));
 }
 
-var server = http.createServer(handleRequest)
+const server = http.createServer(handleRequest)
 
 server.listen (PORT, function () {
 	console.log('Server listening on: http://localhost:%s', PORT)

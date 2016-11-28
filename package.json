@@ -5,9 +5,13 @@
   "repository": "https://github.com/ianwessen/ufcPredictor.git",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "node server.js"
   },
   "author": "Ian Wessen, Cody Rioux",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*"
+  }
 }
