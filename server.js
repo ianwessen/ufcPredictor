@@ -6,6 +6,7 @@ const PORT = 8080
 // TODO: These aren't tested!
 const compose = (...funcs) => (value) => funcs.reduce((v,fn) => fn(v), value);
 const curry = (fun, arg) => (...args) => fun(...[arg, ...args]);
+// TODO: Cody added a useless comment.
 
 function handleRequest (request,response) {
 
