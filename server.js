@@ -4,7 +4,6 @@ const util = require('./util.js');
 
 const PORT = 8080;
 
-
 function handleRequest (request,response) {
 	// TODO: I probably have some linter violations here.
 	const requestParams = url.parse(request.url, true).query
