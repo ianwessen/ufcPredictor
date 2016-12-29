@@ -1,6 +1,6 @@
 const express = require('express'),
   app = express(),
-  bodyParser = require('body-parser'),
+  bodyParser = require('body-parser');
 
 const PORT = 8080
 
@@ -22,12 +22,9 @@ app.post('/form', function(req, res) {
   const maxWeightFinder = compose(curry(Math.max, weightA), Math.ceil);
 
   if (weightA == weightB) {
-    console.log("It's a tie");
     res.send("It's a tie!");
   } else {
-    const winner = maxWeightFinder(weightB)
-    console.log("Winner: " + winner);
-    res.send("Winner: " + winner);
+    res.send("Winner: " + maxWeightFinder(weightB));
   }
   
 });
