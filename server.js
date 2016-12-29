@@ -1,6 +1,6 @@
 const express = require('express'),
   app = express(),
-  bodyParser = require('body-parser');
+  bodyParser = require('body-parser'),
 
 const PORT = 8080
 
@@ -14,18 +14,21 @@ app.get('/', function(req, res) {
 });
 
 app.post('/form', function(req, res) {
-  const weightA = req.body.weightA
-  const weightB = req.body.weightB
+  const compose = (...funcs) => (value) => funcs.reduce((v,fn) => fn(v), value);
+  const curry = (fun, arg) => (...args) => fun(...[arg, ...args]);
+  
+  const weightA = req.body.weightA;
+  const weightB = req.body.weightB;
   const maxWeightFinder = compose(curry(Math.max, weightA), Math.ceil);
 
-  const maxWeight = JSON.stringify({
-    "weightA": weightA,
-    "weightB": weightB,
-    "heaviestRoundedUp": maxWeightFinder(weightB)
-  })
-  
-  console.log(maxWeight);
-  res.send(maxWeight);
+  if (weightA == weightB) {
+    console.log("It's a tie");
+    res.send("It's a tie!");
+  } else {
+    const winner = maxWeightFinder(weightB)
+    console.log("Winner: " + winner);
+    res.send("Winner: " + winner);
+  }
   
 });
 
