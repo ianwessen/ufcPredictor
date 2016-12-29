@@ -1,30 +1,34 @@
-const http = require('http');
-const url = require('url');
+const express = require('express');
+const path = require('path');
+const app = express();
 
 const PORT = 8080
 
-// TODO: These aren't tested!
-const compose = (...funcs) => (value) => funcs.reduce((v,fn) => fn(v), value);
-const curry = (fun, arg) => (...args) => fun(...[arg, ...args]);
-// TODO: Cody added a useless comment.
+app.use(express.static('public'));
 
-function handleRequest (request,response) {
-
-    // TODO: I probably have some linter violations here.
-	const requestParams = url.parse(request.url, true).query
-	const weightA = parseFloat(requestParams["weightB"])
-	const weightB = parseFloat(requestParams["weightA"])
-	const maxWeightFinder = compose(curry(Math.max, weightA), Math.ceil)
-
-	response.end(JSON.stringify({
-	    "weightA": weightA,
-	    "weightB": weightB,
-	    "heaviestRoundedUp": maxWeightFinder(weightB)
-	}));
-}
-
-const server = http.createServer(handleRequest)
-
-server.listen (PORT, function () {
-	console.log('Server listening on: http://localhost:%s', PORT)
+app.get('/', function(req, res) {
+  res.sendFile(__dirname + '/public/app.html');
 });
+
+app.listen(PORT, function() {
+  console.log('server listening on port ' + PORT);
+});
+
+// function handleRequest (request,response) {
+// 
+//     // TODO: I probably have some linter violations here.
+//   const requestParams = url.parse(request.url, true).query
+//   const weightA = parseFloat(requestParams["weightB"])
+//   const weightB = parseFloat(requestParams["weightA"])
+//   const maxWeightFinder = compose(curry(Math.max, weightA), Math.ceil)
+// 
+//   response.end(JSON.stringify({
+//       "weightA": weightA,
+//       "weightB": weightB,
+//       "heaviestRoundedUp": maxWeightFinder(weightB)
+//   }));
+// }
+// 
+// http.createServer(handleRequest).listen(PORT, function () {
+//   console.log('Server listening on: http://localhost:%s', PORT)
+// });
