@@ -6,12 +6,15 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha",
-    "start": "node server.js"
+    "start": "node app/server.js"
   },
   "author": "Ian Wessen, Cody Rioux",
   "license": "ISC",
   "devDependencies": {
     "chai": "*",
+    "eslint": "^3.16.1",
+    "eslint-config-airbnb-base": "^11.1.0",
+    "eslint-plugin-import": "^2.2.0",
     "mocha": "*"
   },
   "dependencies": {
