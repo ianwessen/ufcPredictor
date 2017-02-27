@@ -1,0 +1,43 @@
+// Font calls
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700,900);
+// Supporting CSS framework
+// https://picturepan2.github.io/spectre/
+@import 'spectre';
+
+
+body {
+  font: 400 1.6em/1.5 "Open Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+.title {
+  font-weight: 900;
+}
+
+fieldset {
+  padding: 2em 0;
+}
+
+input[type="submit"] {
+  display: block;
+  width: 200px;
+  margin: 1em auto 0;
+}
+
+.result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 240px;
+  margin: 1.5em auto;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background: #f8f8f8;
+}
+
+.result span {
+  display: inline-block;
+  font-size: 32px;
+  font-weight: 200;
+}
