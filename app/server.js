@@ -1,6 +1,7 @@
 const express = require('express'),
   app = express(),
   bodyParser = require('body-parser'),
+  utility = require('utility'),
   R = require('ramda');
 
 const PORT = 8080
@@ -15,14 +16,10 @@ app.get('/', function(req, res) {
 });
 
 app.post('/prediction', function(req, res) {
-
-  const compose = (...funcs) => (value) => funcs.reduce((v,fn) => fn(v), value);
-  const curry = (fun, arg) => (...args) => fun(...[arg, ...args]);
-  
   const weightA = req.body.weightA;
   const weightB = req.body.weightB;
   
-  const maxWeightFinder = compose(curry(Math.max, weightA), Math.ceil);
+  const maxWeightFinder = utility.compose(utility.curry(Math.max, weightA), Math.ceil);
 
   const winningWeight = maxWeightFinder(weightB)
   const winner = R.invertObj(req.body)[winningWeight]
