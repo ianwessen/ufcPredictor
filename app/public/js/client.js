@@ -1,7 +1,6 @@
 const predictButton = document.querySelector('.btn-submit');
 const result = document.querySelector('.result > span');
 
-
 const request = new XMLHttpRequest();
 
 request.onreadystatechange = function() {

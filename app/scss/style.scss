@@ -1,30 +1,17 @@
-@charset "UTF-8";
+// Font calls
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700,900);
+// Supporting CSS framework
+// https://picturepan2.github.io/spectre/
+@import 'spectre';
 
-html {
-  font-size: 62.5%;
-}
 
 body {
   font: 400 1.6em/1.5 "Open Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
 }
 
-.text-center {
-  text-align: center;
-}
-
 .title {
   font-weight: 900;
-}
-
-.container {
-  position: relative;
-  width: 85%;
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 0 20px;
-  box-sizing: border-box; 
 }
 
 fieldset {
