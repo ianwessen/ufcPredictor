@@ -1,18 +1,18 @@
 const PATH = require('path');
 
-const gulp = require('gulp');
-const eslint = require('gulp-eslint');
-const sass = require('gulp-sass');
-const autoprefixer = require('gulp-autoprefixer');
-const sourcemap = require('gulp-sourcemaps');
+const gulp =           require('gulp');
+const eslint =         require('gulp-eslint');
+const sass =           require('gulp-sass');
+const autoprefixer =   require('gulp-autoprefixer');
+const sourcemap =      require('gulp-sourcemaps');
 
 const ROOT = './';
 
-const JS_FILES = PATH.resolve(__dirname, ROOT, 'app/**/*.js');
-const SCSS_SRC_FOLDER = PATH.resolve(__dirname, ROOT, 'app/scss/');
-const SCSS_SRC_FILES = PATH.resolve(__dirname, ROOT, SCSS_SRC_FOLDER, '**/*.scss');
-const SCSS_SRC_FILE = PATH.resolve(__dirname, ROOT, SCSS_SRC_FOLDER, 'style.scss');
-const SCSS_BUILD_FOLDER = PATH.resolve(__dirname, ROOT, 'app/public/css/');
+const JS_FILES =           PATH.resolve(__dirname, ROOT, 'app/**/*.js');
+const SCSS_SRC_FOLDER =    PATH.resolve(__dirname, ROOT, 'app/scss/');
+const SCSS_SRC_FILES =     PATH.resolve(__dirname, ROOT, SCSS_SRC_FOLDER, '**/*.scss');
+const SCSS_SRC_FILE =      PATH.resolve(__dirname, ROOT, SCSS_SRC_FOLDER, 'style.scss');
+const SCSS_BUILD_FOLDER =  PATH.resolve(__dirname, ROOT, 'app/public/css/');
 
 gulp.task('lint:app', function () {
   return gulp.src(JS_FILES)
