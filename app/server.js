@@ -1,6 +1,6 @@
 const express = require('express'),
   app = express(),
-  bodyParser = require('body-parser')
+  bodyParser = require('body-parser'),
   R = require('ramda');
 
 const PORT = 8080
@@ -8,10 +8,10 @@ const PORT = 8080
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static('.'));
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/public/index.html');
 });
 
 app.post('/prediction', function(req, res) {
